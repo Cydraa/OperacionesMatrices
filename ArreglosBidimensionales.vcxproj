@@ -24,6 +24,7 @@
     <ProjectGuid>{eaea306e-c162-4f2b-9d58-ea0659469b90}</ProjectGuid>
     <RootNamespace>ArreglosBidimensionales</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>OperacionesMatrices</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -127,7 +128,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ArreglosBidimensionales.cpp" />
+    <ClCompile Include="FuncionesAuxiliares.cpp" />
+    <ClCompile Include="Gestiones.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="OperacionesMatrices.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CapturaSegura.hpp" />
+    <ClInclude Include="FuncionesAuxiliares.hpp" />
+    <ClInclude Include="Gestiones.hpp" />
+    <ClInclude Include="OperacionesMatrices.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CapturaSegura.tpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
