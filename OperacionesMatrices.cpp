@@ -3,22 +3,22 @@
 void ImprimirMatriz(double**& matriz, int m, int n)
 {
     cout << char(218);
-    for (int i = 0; i < n; ++i) cout << setw(5) << "";
-    cout << setw(3) << char(191) << endl;
+    for (int i = 0; i < n; ++i) cout << setw(6) << "";
+    cout << setw(n*2+4) << char(191) << endl;
 
     for (int i = 0; i < m; ++i)
     {
         cout << char(179);
         for (int j = 0; j < n; ++j)
         {
-            cout << setw(5) << fixed << setprecision(1) << matriz[i][j];
+            cout << setw(8) << fixed << setprecision(3) << matriz[i][j];
         }
-        cout << setw(2) << "" << char(179) << endl;
+        cout << setw(3) << "" << char(179) << endl;
     }
 
     cout << char(192);
-    for (int i = 0; i < n; ++i) cout << setw(5) << "";
-    cout << setw(3) << char(217) << endl;
+    for (int i = 0; i < n; ++i) cout << setw(6) << "";
+    cout << setw(n*2+4) << char(217) << endl;
 
 }
 
@@ -36,6 +36,34 @@ void CapturarMatriz(double**& matriz, int m, int n)
         }
 
         cout << endl;
+    }
+}
+
+void CapturarMatrizArchivo(double** matriz, int m, int n, char nombreArchivo[])
+{
+    ofstream salida;
+    salida.open("matrices.txt");
+
+    salida << m << "\t" << n << endl;
+
+    for (int i = 0; i < m; ++i)
+    {
+        for (int j = 0; j < n; ++j)
+        {
+            salida << matriz[i][j] << "\t";
+        }
+
+        salida << endl;
+    }
+
+    salida.close();
+}
+
+void InicializarMatrizCero(double**& matriz, int m, int n) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            matriz[i][j] = 0;
+        }
     }
 }
 
@@ -72,11 +100,15 @@ void ProductoEscalar(double**& matriz, double escalar, int m, int n)
     }
 }
 
-void MultiplicacionMatrices(double** m1, double** m2, double**matriz, int a, int b, int a2, int b2) {
-    for (int i = 0; i < a; i++) {
-        for (int j = 0; j < b; j++) {
-            for (int k = 0; k < b2; k++) {
-                matriz[i][j] += m1[i][k] * m2[k][j];
+void MultiplicacionMatrices(double** matrizA, double** matrizB, double** matrizR, int mA, int mB, int nB) 
+{
+    for (int i = 0; i < mA; ++i)
+    {
+        for (int j = 0; j < nB; ++j)
+        {
+            for (int k = 0; k < mB; ++k)
+            {
+                matrizR[i][j] += matrizA[i][k] * matrizB[k][j];
             }
         }
     }

@@ -23,11 +23,3 @@ void DestruirArreglo2D(double**& arreglo, int m)
 
     arreglo = NULL;  // Si ya no se va a usar
 }
-
-void LlenarMatriz(double**& matriz, int m, int n) {
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            matriz[i][j] = 0;
-        }
-    }
-}

@@ -1,5 +1,80 @@
 #include "Gestiones.hpp"
 
+void GestionarCapturaArchivo()
+{
+    int mA, nA;
+    char solicitud[50];
+    char nombreArchivo[22];
+
+    cout << "CAPTURAR MATRIZ A ARCHIVO\n" << endl;
+
+    cout << "= MATRIZ A =\n" << endl;
+    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
+    do {
+        CapturaSegura(mA, solicitud);
+    } while (mA < 1 || mA > MAX_REN);
+
+    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
+    do {
+        CapturaSegura(nA, solicitud);
+    } while (nA < 1 || nA > MAX_COL);
+
+    cout << "\nCapturar matriz A:\n";
+    double** matrizA = CrearArreglo2D(mA, nA);
+    CapturarMatriz(matrizA, mA, nA);
+
+    system("pause");
+    system("cls");
+
+    cout << "CAPTURAR MATRIZ A ARCHIVO\n" << endl;
+
+    cout << "Capturando matriz: " << endl;
+
+    ImprimirMatriz(matrizA, mA, nA);
+
+    do
+    {
+        cout << "\nIntroduzca el nombre del archivo (maximo 20 caracteres): ";
+        cin >> nombreArchivo;
+    } while (strlen(nombreArchivo) > 20);
+
+
+    char extension[5] = ".txt" ;
+    char aux[5] = {};
+    int j = 0;
+
+    cout << "len: ";
+    cout << strlen(nombreArchivo);
+
+
+    for (int i = strlen(nombreArchivo) - 4; nombreArchivo[i] == '\0' ; ++i, ++j)
+    {
+        aux[j] = nombreArchivo[i];
+    }
+
+    cout << "aux: ";
+    cout << aux;
+ 
+
+    if (strcmp(aux,nombreArchivo) == 0)
+    {       
+        cout << "nombre : " << endl;
+        cout << nombreArchivo << endl;
+    }
+    else
+    {
+        char nombreArchivoR[sizeof(nombreArchivo)+sizeof(extension)];
+
+        strcpy_s(nombreArchivoR, nombreArchivo);
+        strcat_s(nombreArchivoR, extension);
+
+        cout << "nombre con extension: " << endl;
+        cout << nombreArchivoR << endl;
+    }
+
+    system("pause");
+}
+
 
 void GestionarSuma()
 {
@@ -8,12 +83,12 @@ void GestionarSuma()
     cout << "SUMA DE MATRICES\n" << endl; 
 
     cout << "= MATRIZ A =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (positivos menores a %d ) : ", MAX_REN);
+    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
     do {
         CapturaSegura(mA, solicitud);
     } while (mA < 1 || mA > MAX_REN);
 
-    sprintf_s(solicitud, "Numero de columnas (positivos menores a %d ) : ", MAX_COL);
+    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
     do {
         CapturaSegura(nA, solicitud);
     } while (nA < 1 || nA > MAX_COL);
@@ -24,15 +99,15 @@ void GestionarSuma()
     ImprimirMatriz(matrizA, mA, nA);
 
     system("pause");
-    cout << endl;
+    system("cls");
 
     cout << "= MATRIZ B =\n " << endl;
-    sprintf_s(solicitud, "Numero de renglones (positivos menores a %d ) : ", MAX_REN);
+    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
     do {
         CapturaSegura(mB, solicitud);
     } while (mB < 1 || mB > MAX_REN);
 
-    sprintf_s(solicitud, "Numero de columnas (positivos menores a %d ) : ", MAX_COL);
+    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
     do {
         CapturaSegura(nB, solicitud);
     } while (nB < 1 || nB > MAX_COL);
@@ -82,12 +157,12 @@ void GestionarResta()
     cout << "RESTA DE MATRICES\n" << endl;
 
     cout << "= MATRIZ A =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (positivos menores a %d ) : ", MAX_REN);
+    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
     do {
         CapturaSegura(mA, solicitud);
     } while (mA < 1 || mA > MAX_REN);
 
-    sprintf_s(solicitud, "Numero de columnas (positivos menores a %d ) : ", MAX_COL);
+    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
     do {
         CapturaSegura(nA, solicitud);
     } while (nA < 1 || nA > MAX_COL);
@@ -98,15 +173,15 @@ void GestionarResta()
     ImprimirMatriz(matrizA, mA, nA);
 
     system("pause");
-    cout << endl;
+    system("cls");
 
     cout << "= MATRIZ B =\n " << endl;
-    sprintf_s(solicitud, "Numero de renglones (positivos menores a %d ) : ", MAX_REN);
+    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
     do {
         CapturaSegura(mB, solicitud);
     } while (mB < 1 || mB > MAX_REN);
 
-    sprintf_s(solicitud, "Numero de columnas (positivos menores a %d ) : ", MAX_COL);
+    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
     do {
         CapturaSegura(nB, solicitud);
     } while (nB < 1 || nB > MAX_COL);
@@ -157,12 +232,12 @@ void GestionarProdEscalar()
     cout << "PRODUCTO POR UN ESCALAR\n" << endl;
 
     cout << "= MATRIZ A =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (positivos menores a %d ) : ", MAX_REN);
+    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
     do {
         CapturaSegura(m, solicitud);
     } while (m < 1 || m > MAX_REN);
 
-    sprintf_s(solicitud, "Numero de columnas (positivos menores a %d ) : ", MAX_COL);
+    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
     do {
         CapturaSegura(n, solicitud);
     } while (n < 1 || n > MAX_COL);
@@ -176,6 +251,7 @@ void GestionarProdEscalar()
 
     system("pause");
     system("cls");
+
     cout << "PRODUCTO POR UN ESCALAR\n" << endl;
 
     cout << setw(n * 5) << escalar << endl;
@@ -202,12 +278,12 @@ void GestionarMultiplicacion()
     cout << "MULTIPLICACION DE MATRICES\n" << endl;
 
     cout << "= MATRIZ A =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (positivos menores a %d ) : ", MAX_REN);
+    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
     do {
         CapturaSegura(mA, solicitud);
     } while (mA < 1 || mA > MAX_REN);
 
-    sprintf_s(solicitud, "Numero de columnas (positivos menores a %d ) : ", MAX_COL);
+    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
     do {
         CapturaSegura(nA, solicitud);
     } while (nA < 1 || nA > MAX_COL);
@@ -218,15 +294,17 @@ void GestionarMultiplicacion()
     ImprimirMatriz(matrizA, mA, nA);
 
     system("pause");
-    cout << endl;
+    system("cls");
+
+    cout << "MULTIPLICACION DE MATRICES\n" << endl;
 
     cout << "= MATRIZ B =\n " << endl;
-    sprintf_s(solicitud, "Numero de renglones (positivos menores a %d ) : ", MAX_REN);
+    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
     do {
         CapturaSegura(mB, solicitud);
     } while (mB < 1 || mB > MAX_REN);
 
-    sprintf_s(solicitud, "Numero de columnas (positivos menores a %d ) : ", MAX_COL);
+    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
     do {
         CapturaSegura(nB, solicitud);
     } while (nB < 1 || nB > MAX_COL);
@@ -244,10 +322,7 @@ void GestionarMultiplicacion()
     {
         double** matrizR = CrearArreglo2D(mA, nB);
 
-        LlenarMatriz(matrizR, mA, nB);
-        //ImprimirMatriz(matrizR, mA, nB);
-        //system("pause");
-
+        InicializarMatrizCero(matrizR, mA, nB);
 
         ImprimirMatriz(matrizA, mA, nA);
 
@@ -255,7 +330,7 @@ void GestionarMultiplicacion()
 
         ImprimirMatriz(matrizB, mB, nB);
 
-        /*MultiplicacionMatrices(matrizA, matrizB, matrizR, mA, nA, mB, nB);*/
+        MultiplicacionMatrices(matrizA, matrizB, matrizR, mA, mB, nB);
 
         cout << setw(nA * 5) << "=" << endl;
 
@@ -281,12 +356,12 @@ void GestionarTranspuesta()
     cout << "TRANSPUESTA DE LA MATRIZ\n" << endl;
 
     cout << "= MATRIZ =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (positivos menores a %d ) : ", MAX_REN);
+    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
     do {
         CapturaSegura(m, solicitud);
     } while (m < 1 || m > MAX_REN);
 
-    sprintf_s(solicitud, "Numero de columnas (positivos menores a %d ) : ", MAX_COL);
+    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
     do {
         CapturaSegura(n, solicitud);
     } while (n < 1 || n > MAX_COL);

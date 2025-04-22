@@ -24,5 +24,3 @@ double** CrearArreglo2D(int m, int n);
 * \param m Columnas del arreglo 2D.
 */
 void DestruirArreglo2D(double**& arreglo, int m);
-
-void LlenarMatriz(double**& matriz, int m, int n);

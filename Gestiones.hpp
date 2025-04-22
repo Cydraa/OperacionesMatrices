@@ -7,6 +7,7 @@
 #include "CapturaSegura.hpp"
 
 
+void GestionarCapturaArchivo();
 void GestionarSuma();
 void GestionarResta();
 void GestionarProdEscalar();
