@@ -3,9 +3,11 @@
 #include <stdio.h>
 
 #include "FuncionesAuxiliares.hpp"
-#include "OperacionesMatrices.hpp"
-#include "CapturaSegura.hpp"
 
+enum opcionesCaptura {
+	CONSOLA = 1,
+	ARCHIVO
+};
 
 void GestionarCapturaArchivo();
 void GestionarSuma();

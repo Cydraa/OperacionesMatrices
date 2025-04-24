@@ -1,6 +1,6 @@
 #include "OperacionesMatrices.hpp"
 
-void ImprimirMatriz(double**& matriz, int m, int n)
+void ImprimirMatriz(double** matriz, int m, int n)
 {
     cout << char(218);
     for (int i = 0; i < n; ++i) cout << setw(6) << "";
@@ -22,12 +22,12 @@ void ImprimirMatriz(double**& matriz, int m, int n)
 
 }
 
-void CapturarMatriz(double**& matriz, int m, int n)
+void CapturarMatriz(double** matriz, int m, int n)
 {
     char solicitud[50];
     for (int i = 0; i < m; ++i)
     {
-        cout << "Renglon " << i + 1 << endl;
+        cout << "Rengl\242n " << i + 1 << endl;
 
         for (int j = 0; j < n; ++j)
         {
@@ -39,10 +39,10 @@ void CapturarMatriz(double**& matriz, int m, int n)
     }
 }
 
-void CapturarMatrizArchivo(double** matriz, int m, int n, char nombreArchivo[])
+void ImprimirMatrizArchivo(double** matriz, int m, int n, string nombreArchivo)
 {
     ofstream salida;
-    salida.open("matrices.txt");
+    salida.open(nombreArchivo);
 
     salida << m << "\t" << n << endl;
 
@@ -50,16 +50,33 @@ void CapturarMatrizArchivo(double** matriz, int m, int n, char nombreArchivo[])
     {
         for (int j = 0; j < n; ++j)
         {
-            salida << matriz[i][j] << "\t";
+            salida << fixed << setprecision(3) << matriz[i][j] << "\t";
         }
 
         salida << endl;
     }
-
     salida.close();
+    cout << "\nLa matriz se imprimi\242 exitosamente en el archivo: " << nombreArchivo << "\n" << endl;
 }
 
-void InicializarMatrizCero(double**& matriz, int m, int n) {
+void CapturarMatrizArchivo(double**& matriz, int &m, int &n, string nombreArchivo)
+{
+    ifstream entrada;
+    entrada.open(nombreArchivo);
+    entrada >> m >> n;
+
+    for (int i = 0; i < m; ++i)
+    {
+        for (int j = 0; j < n; ++j)
+        {
+            entrada >> matriz[i][j];
+        }
+    }
+
+    entrada.close();
+}
+
+void InicializarMatrizCero(double** matriz, int m, int n) {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
             matriz[i][j] = 0;
@@ -67,7 +84,7 @@ void InicializarMatrizCero(double**& matriz, int m, int n) {
     }
 }
 
-void SumaMatriz(double**& matrizA, double**& matrizB, double**& matrizR, int m, int n)
+void SumaMatriz(double** matrizA, double** matrizB, double** matrizR, int m, int n)
 {
     for (int i = 0; i < m; ++i)
     {
@@ -78,7 +95,7 @@ void SumaMatriz(double**& matrizA, double**& matrizB, double**& matrizR, int m, 
     }
 }
 
-void RestaMatriz(double**& matrizA, double**& matrizB, double**& matrizR, int m, int n)
+void RestaMatriz(double** matrizA, double** matrizB, double** matrizR, int m, int n)
 {
     for (int i = 0; i < m; ++i)
     {
@@ -89,7 +106,7 @@ void RestaMatriz(double**& matrizA, double**& matrizB, double**& matrizR, int m,
     }
 }
 
-void ProductoEscalar(double**& matriz, double escalar, int m, int n)
+void ProductoEscalar(double** matriz, double escalar, int m, int n)
 {
     for (int i = 0; i < m; ++i)
     {

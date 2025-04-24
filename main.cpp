@@ -1,3 +1,8 @@
+//Nombre : main.cpp
+//Descripcion : Este programa calcula operaciones sobre matrices.
+//Autores : Ana Paulina Sortillon Sortillon y Jovanna Amiraxel Reyes Casillas.
+//Fecha : 23/04/2025
+
 #include <iostream>
 #include <cstdlib>
 #include <iomanip>
@@ -39,11 +44,11 @@ int main()
         system("cls");
         switch (opUser)
         {
-        case CAPTURAR_ARCHIVO: GestionarCapturaArchivo(); break;
+            case CAPTURAR_ARCHIVO: GestionarCapturaArchivo(); break;
             case SUMA:  GestionarSuma(); break;
             case RESTA: GestionarResta(); break;
             case PROD_ESCALAR: GestionarProdEscalar(); break;
-            case MULTIPLICACION: GestionarMultiplicacion(); break; //Buggeado
+            case MULTIPLICACION: GestionarMultiplicacion(); break;
             case TRANSPUESTA: GestionarTranspuesta(); break;
             case INVERSA: break;
         }

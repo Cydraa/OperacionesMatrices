@@ -1,12 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <iomanip>
-
-using std::cout;
-using std::cin;
-using std::endl;
-using std::setw;
+#include "OperacionesMatrices.hpp"
 
 /**
 * \brief Crea un arreglo din&aacute;mico de dos dimensiones usando un puntero a puntero entero (tipo del arreglo) que apunta al arreglo blanco.
@@ -24,3 +19,7 @@ double** CrearArreglo2D(int m, int n);
 * \param m Columnas del arreglo 2D.
 */
 void DestruirArreglo2D(double**& arreglo, int m);
+
+bool DetectarExtension(char cadena[]);
+void CapturarDimensiones(int& m, int& n);
+string NombrarArchivo();

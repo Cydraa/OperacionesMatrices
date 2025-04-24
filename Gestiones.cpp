@@ -2,391 +2,616 @@
 
 void GestionarCapturaArchivo()
 {
-    int mA, nA;
-    char solicitud[50];
-    char nombreArchivo[22];
+    int m, n;
+    string nombreArchivo;
 
     cout << "CAPTURAR MATRIZ A ARCHIVO\n" << endl;
 
-    cout << "= MATRIZ A =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
-    do {
-        CapturaSegura(mA, solicitud);
-    } while (mA < 1 || mA > MAX_REN);
+    CapturarDimensiones(m, n);
 
-    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
-    do {
-        CapturaSegura(nA, solicitud);
-    } while (nA < 1 || nA > MAX_COL);
-
-    cout << "\nCapturar matriz A:\n";
-    double** matrizA = CrearArreglo2D(mA, nA);
-    CapturarMatriz(matrizA, mA, nA);
+    cout << "\nCapturar matriz:\n";
+    double** matriz = CrearArreglo2D(m, n);
+    CapturarMatriz(matriz, m, n);
 
     system("pause");
     system("cls");
 
     cout << "CAPTURAR MATRIZ A ARCHIVO\n" << endl;
-
     cout << "Capturando matriz: " << endl;
+    ImprimirMatriz(matriz, m, n);
 
-    ImprimirMatriz(matrizA, mA, nA);
+    nombreArchivo = NombrarArchivo();
 
-    do
-    {
-        cout << "\nIntroduzca el nombre del archivo (maximo 20 caracteres): ";
-        cin >> nombreArchivo;
-    } while (strlen(nombreArchivo) > 20);
+    ImprimirMatrizArchivo(matriz, m, n, nombreArchivo);
 
-
-    char extension[5] = ".txt" ;
-    char aux[5] = {};
-    int j = 0;
-
-    cout << "len: ";
-    cout << strlen(nombreArchivo);
-
-
-    for (int i = strlen(nombreArchivo) - 4; nombreArchivo[i] == '\0' ; ++i, ++j)
-    {
-        aux[j] = nombreArchivo[i];
-    }
-
-    cout << "aux: ";
-    cout << aux;
- 
-
-    if (strcmp(aux,nombreArchivo) == 0)
-    {       
-        cout << "nombre : " << endl;
-        cout << nombreArchivo << endl;
-    }
-    else
-    {
-        char nombreArchivoR[sizeof(nombreArchivo)+sizeof(extension)];
-
-        strcpy_s(nombreArchivoR, nombreArchivo);
-        strcat_s(nombreArchivoR, extension);
-
-        cout << "nombre con extension: " << endl;
-        cout << nombreArchivoR << endl;
-    }
+    DestruirArreglo2D(matriz, m);
 
     system("pause");
 }
 
-
 void GestionarSuma()
 {
-    int mA, nA, mB, nB;
-    char solicitud[50];
-    cout << "SUMA DE MATRICES\n" << endl; 
+    int mA(0), nA(0), mB(0), nB(0);
+    int opUser;
+    string nombreArchivo;
+    double** matrizA = CrearArreglo2D(MAX_REN, MAX_COL);
+    double** matrizB = CrearArreglo2D(MAX_REN, MAX_COL);
 
-    cout << "= MATRIZ A =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
-    do {
-        CapturaSegura(mA, solicitud);
-    } while (mA < 1 || mA > MAX_REN);
-
-    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
-    do {
-        CapturaSegura(nA, solicitud);
-    } while (nA < 1 || nA > MAX_COL);
-
-    cout << "\nCapturar matriz A:\n";
-    double** matrizA = CrearArreglo2D(mA, nA);
-    CapturarMatriz(matrizA, mA, nA);
-    ImprimirMatriz(matrizA, mA, nA);
-
-    system("pause");
-    system("cls");
-
-    cout << "= MATRIZ B =\n " << endl;
-    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
-    do {
-        CapturaSegura(mB, solicitud);
-    } while (mB < 1 || mB > MAX_REN);
-
-    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
-    do {
-        CapturaSegura(nB, solicitud);
-    } while (nB < 1 || nB > MAX_COL);
-
-    cout << "\nCapturar matriz B:\n";
-    double** matrizB = CrearArreglo2D(mB, nB);
-    CapturarMatriz(matrizB, mB, nB);
-    ImprimirMatriz(matrizB, mB, nB);
-
-    system("pause");
-    system("cls");
-
-    cout << "SUMA DE MATRICES\n" << endl;
-    if (mA == mB && nA == nB)
+    do
     {
-        double** matrizR = CrearArreglo2D(mA, nA);
+        cout << "SUMA DE MATRICES\n" << endl;
 
-        ImprimirMatriz(matrizA, mA, nA);
+        cout << "Elija una opci\242n de captura: " << endl;
+        cout << CONSOLA << ") Captura manual en consola" << endl;
+        cout << ARCHIVO << ") Captura desde archivo" << endl;
+        cout << "3) Regresar al men\243 anterior" << endl;
 
-        cout << setw(nA * 5) << "+" << endl;
+        do
+        {
+            CapturaSegura(opUser, "OPCION (entre 1 y 3): ");
+        } while (opUser < 1 || opUser > 3);
 
-        ImprimirMatriz(matrizB, mB, nB);
+        if (opUser == 3) continue;
 
-        SumaMatriz(matrizA, matrizB, matrizR, mA, nA);
+        system("cls");
 
-        cout << setw(nA * 5) << "=" << endl;
+        switch (opUser)
+        {
+        case CONSOLA:
+            cout << "= MATRIZ A =\n" << endl;
+            CapturarDimensiones(mA, nA);
 
-        ImprimirMatriz(matrizR, mA, nA);
+            cout << "\nCapturar matriz A:\n";
+            CapturarMatriz(matrizA, mA, nA);
+            ImprimirMatriz(matrizA, mA, nA);
 
-        DestruirArreglo2D(matrizR, mA);
-    }
-    else
-    {
-        cout << "ERROR: Los dos arreglos no se pueden sumar.\n\n";
-    }
+            system("pause");
+            system("cls");
 
-    DestruirArreglo2D(matrizA, mA);
-    DestruirArreglo2D(matrizB, mB);
+            cout << "= MATRIZ B =\n " << endl;
+            CapturarDimensiones(mB, nB);
+
+            cout << "\nCapturar matriz B:\n";
+            CapturarMatriz(matrizB, mB, nB);
+            ImprimirMatriz(matrizB, mB, nB);
+            break;
+
+        case ARCHIVO:
+            ifstream entrada;
+
+            cout << "= MATRIZ A = " << endl;
+            do
+            {
+                nombreArchivo = NombrarArchivo();
+
+                entrada.open(nombreArchivo);
+
+                if (!entrada.is_open()) entrada.close();
+                if (!entrada) cout << "ERROR: El archivo no pudo ser abierto ya que no existe." << endl;
+
+            } while (!entrada);
+
+            entrada.close();
+            CapturarMatrizArchivo(matrizA, mA, nA, nombreArchivo);
+
+            ImprimirMatriz(matrizA, mA, nA);
+
+            cout << "= MATRIZ B = " << endl;
+            do
+            {
+                nombreArchivo = NombrarArchivo();
+
+                entrada.open(nombreArchivo);
+
+                if (!entrada) cout << "ERROR: El archivo no pudo ser abierto ya que no existe." << endl;
+
+            } while (!entrada);
+
+            entrada.close();
+            CapturarMatrizArchivo(matrizB, mB, nB, nombreArchivo);
+
+            ImprimirMatriz(matrizB, mB, nB);
+            break;
+        }
+
+        system("pause");
+        system("cls");
+
+        cout << "SUMA DE MATRICES\n" << endl;
+        if (mA == mB && nA == nB)
+        {
+            double** matrizR = CrearArreglo2D(mA, nA);
+
+            ImprimirMatriz(matrizA, mA, nA);
+            cout << setw(nA * 5) << "+" << endl;
+            ImprimirMatriz(matrizB, mB, nB);
+            SumaMatriz(matrizA, matrizB, matrizR, mA, nA);
+            cout << setw(nA * 5) << "=" << endl;
+            ImprimirMatriz(matrizR, mA, nA);
+
+            cout << "\250Desea imprimir el resultado a un archivo?" << endl;
+            cout << "1) S\241" << endl;
+            cout << "2) No" << endl;
+
+            do
+            {
+                CapturaSegura(opUser, "OPCION (entre 1 y 2): ");
+            } while (opUser < 1 || opUser > 2);
+
+            if (opUser == 1)
+            {
+                nombreArchivo = NombrarArchivo();
+                ImprimirMatrizArchivo(matrizR, mA, nA, nombreArchivo);
+            }
+
+            DestruirArreglo2D(matrizR, mA);
+        }
+        else
+        {
+            cout << "ERROR: Los dos arreglos no se pueden sumar.\n\n";
+        }
+
+        DestruirArreglo2D(matrizA, MAX_REN);
+        DestruirArreglo2D(matrizB, MAX_REN);
+        break;
+
+    } while (opUser != 3);
 
     system("pause");
 }
 
 void GestionarResta()
 {
-    int mA, nA, mB, nB;
-    char solicitud[50];
-    cout << "RESTA DE MATRICES\n" << endl;
+    int mA(0), nA(0), mB(0), nB(0);
+    int opUser;
+    string nombreArchivo;
+    double** matrizA = CrearArreglo2D(MAX_REN, MAX_COL);
+    double** matrizB = CrearArreglo2D(MAX_REN, MAX_COL);
 
-    cout << "= MATRIZ A =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
-    do {
-        CapturaSegura(mA, solicitud);
-    } while (mA < 1 || mA > MAX_REN);
-
-    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
-    do {
-        CapturaSegura(nA, solicitud);
-    } while (nA < 1 || nA > MAX_COL);
-
-    cout << "\nCapturar matriz A:\n";
-    double** matrizA = CrearArreglo2D(mA, nA);
-    CapturarMatriz(matrizA, mA, nA);
-    ImprimirMatriz(matrizA, mA, nA);
-
-    system("pause");
-    system("cls");
-
-    cout << "= MATRIZ B =\n " << endl;
-    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
-    do {
-        CapturaSegura(mB, solicitud);
-    } while (mB < 1 || mB > MAX_REN);
-
-    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
-    do {
-        CapturaSegura(nB, solicitud);
-    } while (nB < 1 || nB > MAX_COL);
-
-    cout << "\nCapturar matriz B:\n";
-    double** matrizB = CrearArreglo2D(mB, nB);
-    CapturarMatriz(matrizB, mB, nB);
-    ImprimirMatriz(matrizB, mB, nB);
-
-    system("pause");
-    system("cls");
-
-    cout << "RESTA DE MATRICES\n" << endl;
-    if (mA == mB && nA == nB)
+    do
     {
-        double** matrizR = CrearArreglo2D(mA, nA);
+        cout << "RESTA DE MATRICES\n" << endl;
 
-        ImprimirMatriz(matrizA, mA, nA);
+        cout << "Elija una opci\242n de captura: " << endl;
+        cout << CONSOLA << ") Captura manual en consola" << endl;
+        cout << ARCHIVO << ") Captura desde archivo" << endl;
+        cout << "3) Regresar al men\243 anterior" << endl;
 
-        cout << setw(nA * 5) << "-" << endl;
+        do
+        {
+            CapturaSegura(opUser, "OPCION (entre 1 y 3): ");
+        } while (opUser < 1 || opUser > 3);
 
-        ImprimirMatriz(matrizB, mB, nB);
+        if (opUser == 3) continue;
 
-        RestaMatriz(matrizA, matrizB, matrizR, mA, nA);
+        switch (opUser)
+        {
+        case CONSOLA:
+            system("cls");
+            cout << "= MATRIZ A =\n" << endl;
+            CapturarDimensiones(mA, nA);
 
-        cout << setw(nA * 5) << "=" << endl;
+            cout << "\nCapturar matriz A:\n";
+            CapturarMatriz(matrizA, mA, nA);
+            ImprimirMatriz(matrizA, mA, nA);
 
-        ImprimirMatriz(matrizR, mA, nA);
+            system("pause");
+            system("cls");
 
-        DestruirArreglo2D(matrizR, mA);
-    }
-    else
-    {
-        cout << "ERROR: Los dos arreglos no se pueden restar.\n\n";
-    }
+            cout << "= MATRIZ B =\n " << endl;
+            CapturarDimensiones(mB, nB);
 
-    DestruirArreglo2D(matrizA, mA);
-    DestruirArreglo2D(matrizB, mB);
+            cout << "\nCapturar matriz B:\n";
+            CapturarMatriz(matrizB, mB, nB);
+            ImprimirMatriz(matrizB, mB, nB);
+            break;
+
+        case ARCHIVO:
+            system("cls");
+
+            ifstream entrada;
+
+            cout << "= MATRIZ A = " << endl;
+            do
+            {
+                nombreArchivo = NombrarArchivo();
+
+                entrada.open(nombreArchivo);
+
+                if (!entrada.is_open()) entrada.close();
+                if (!entrada) cout << "ERROR: El archivo no pudo ser abierto ya que no existe." << endl;
+
+            } while (!entrada);
+
+            entrada.close();
+            CapturarMatrizArchivo(matrizA, mA, nA, nombreArchivo);
+
+            ImprimirMatriz(matrizA, mA, nA);
+
+            cout << "= MATRIZ B = " << endl;
+            do
+            {
+                nombreArchivo = NombrarArchivo();
+
+                entrada.open(nombreArchivo);
+
+                if (!entrada) cout << "ERROR: El archivo no pudo ser abierto ya que no existe." << endl;
+
+            } while (!entrada);
+
+            entrada.close();
+            CapturarMatrizArchivo(matrizB, mB, nB, nombreArchivo);
+
+            ImprimirMatriz(matrizB, mB, nB);
+            break;
+        }
+
+        system("pause");
+        system("cls");
+
+        cout << "RESTA DE MATRICES\n" << endl;
+        if (mA == mB && nA == nB)
+        {
+            double** matrizR = CrearArreglo2D(mA, nA);
+
+            ImprimirMatriz(matrizA, mA, nA);
+            cout << setw(nA * 5) << "-" << endl;
+            ImprimirMatriz(matrizB, mB, nB);
+            RestaMatriz(matrizA, matrizB, matrizR, mA, nA);
+            cout << setw(nA * 5) << "=" << endl;
+            ImprimirMatriz(matrizR, mA, nA);
+
+            cout << "\250Desea imprimir el resultado a un archivo?" << endl;
+            cout << "1) S\241" << endl;
+            cout << "2) No" << endl;
+
+            do
+            {
+                CapturaSegura(opUser, "OPCION (entre 1 y 2): ");
+            } while (opUser < 1 || opUser > 2);
+
+            if (opUser == 1)
+            {
+                nombreArchivo = NombrarArchivo();
+                ImprimirMatrizArchivo(matrizR, mA, nA, nombreArchivo);
+            }
+
+            DestruirArreglo2D(matrizR, mA);
+        }
+        else
+        {
+            cout << "ERROR: Los dos arreglos no se pueden restar.\n\n";
+        }
+
+        DestruirArreglo2D(matrizA, MAX_REN);
+        DestruirArreglo2D(matrizB, MAX_REN);
+        break;
+
+    } while (opUser != 3);
 
     system("pause");
 }
 
 void GestionarProdEscalar()
 {
-    int m, n;
+    int m(0), n(0);
+    int opUser;
+    string nombreArchivo;
+    double** matriz = CrearArreglo2D(MAX_REN, MAX_COL);
     double escalar;
-    char solicitud[50];
-    cout << "PRODUCTO POR UN ESCALAR\n" << endl;
 
-    cout << "= MATRIZ A =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
-    do {
-        CapturaSegura(m, solicitud);
-    } while (m < 1 || m > MAX_REN);
+    do
+    {
+        cout << "PRODUCTO POR UN ESCALAR\n" << endl;
 
-    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
-    do {
-        CapturaSegura(n, solicitud);
-    } while (n < 1 || n > MAX_COL);
+        cout << "Elija una opci\242n de captura: " << endl;
+        cout << CONSOLA << ") Captura manual en consola" << endl;
+        cout << ARCHIVO << ") Captura desde archivo" << endl;
+        cout << "3) Regresar al men\243 anterior" << endl;
 
-    cout << "\nCapturar matriz A:\n";
-    double** matriz = CrearArreglo2D(m, n);
-    CapturarMatriz(matriz, m, n);
-    ImprimirMatriz(matriz, m, n);
+        do
+        {
+            CapturaSegura(opUser, "OPCION (entre 1 y 3): ");
+        } while (opUser < 1 || opUser > 3);
 
-    CapturaSegura(escalar, "\nEscalar: ");
+        if (opUser == 3) continue;
 
-    system("pause");
-    system("cls");
+        switch (opUser)
+        {
+        case CONSOLA:
+            system("cls");
+            cout << "= MATRIZ =\n" << endl;
+            CapturarDimensiones(m, n);
 
-    cout << "PRODUCTO POR UN ESCALAR\n" << endl;
+            cout << "\nCapturar matriz A:\n";
+            CapturarMatriz(matriz, m, n);
+            ImprimirMatriz(matriz, m, n);
+            break;
 
-    cout << setw(n * 5) << escalar << endl;
+        case ARCHIVO:
+            system("cls");
 
-    cout << setw(n * 5) << "*" << endl;
+            ifstream entrada;
+            cout << "= MATRIZ = " << endl;
+            do
+            {
+                nombreArchivo = NombrarArchivo();
 
-    ImprimirMatriz(matriz, m, n);
+                entrada.open(nombreArchivo);
 
-    ProductoEscalar(matriz, escalar, m, n);
+                if (!entrada.is_open()) entrada.close();
+                if (!entrada) cout << "ERROR: El archivo no pudo ser abierto ya que no existe." << endl;
 
-    cout << setw(n * 5) << "=" << endl;
+            } while (!entrada);
 
-    ImprimirMatriz(matriz, m, n);
+            entrada.close();
+            CapturarMatrizArchivo(matriz, m, n, nombreArchivo);
 
-    DestruirArreglo2D(matriz,m);
+            ImprimirMatriz(matriz, m, n);
+            break;
+        }
+
+        CapturaSegura(escalar, "\nEscalar: ");
+
+        system("pause");
+        system("cls");
+
+        cout << "PRODUCTO POR UN ESCALAR\n" << endl;
+
+        cout << setw(n * 5) << escalar << endl;
+        cout << setw(n * 5) << "*" << endl;
+        ImprimirMatriz(matriz, m, n);
+        ProductoEscalar(matriz, escalar, m, n);
+        cout << setw(n * 5) << "=" << endl;
+        ImprimirMatriz(matriz, m, n);
+
+        cout << "\250Desea imprimir el resultado a un archivo?" << endl;
+        cout << "1) S\241" << endl;
+        cout << "2) No" << endl;
+
+        do
+        {
+            CapturaSegura(opUser, "OPCION (entre 1 y 2): ");
+        } while (opUser < 1 || opUser > 2);
+
+        if (opUser == 1)
+        {
+            nombreArchivo = NombrarArchivo();
+            ImprimirMatrizArchivo(matriz, m, n, nombreArchivo);
+        }
+
+        DestruirArreglo2D(matriz, m);
+        break;
+
+    } while (opUser != 3);
 
     system("pause");
 }
 
 void GestionarMultiplicacion()
 {
-    int mA, nA, mB, nB;
-    char solicitud[50];
-    cout << "MULTIPLICACION DE MATRICES\n" << endl;
+    int mA(0), nA(0), mB(0), nB(0);
+    int opUser;
+    string nombreArchivo;
+    double** matrizA = CrearArreglo2D(MAX_REN, MAX_COL);
+    double** matrizB = CrearArreglo2D(MAX_REN, MAX_COL);
 
-    cout << "= MATRIZ A =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
-    do {
-        CapturaSegura(mA, solicitud);
-    } while (mA < 1 || mA > MAX_REN);
-
-    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
-    do {
-        CapturaSegura(nA, solicitud);
-    } while (nA < 1 || nA > MAX_COL);
-
-    cout << "\nCapturar matriz A:\n";
-    double** matrizA = CrearArreglo2D(mA, nA);
-    CapturarMatriz(matrizA, mA, nA);
-    ImprimirMatriz(matrizA, mA, nA);
-
-    system("pause");
-    system("cls");
-
-    cout << "MULTIPLICACION DE MATRICES\n" << endl;
-
-    cout << "= MATRIZ B =\n " << endl;
-    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
-    do {
-        CapturaSegura(mB, solicitud);
-    } while (mB < 1 || mB > MAX_REN);
-
-    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
-    do {
-        CapturaSegura(nB, solicitud);
-    } while (nB < 1 || nB > MAX_COL);
-
-    cout << "\nCapturar matriz B:\n";
-    double** matrizB = CrearArreglo2D(mB, nB);
-    CapturarMatriz(matrizB, mB, nB);
-    ImprimirMatriz(matrizB, mB, nB);
-
-    system("pause");
-    system("cls");
-
-    cout << "MULTIPLICACION DE MATRICES\n" << endl;
-    if (nA == mB)
+    do
     {
-        double** matrizR = CrearArreglo2D(mA, nB);
+        cout << "MULTIPLICACION DE MATRICES\n" << endl;
 
-        InicializarMatrizCero(matrizR, mA, nB);
+        cout << "Elija una opci\242n de captura: " << endl;
+        cout << CONSOLA << ") Captura manual en consola" << endl;
+        cout << ARCHIVO << ") Captura desde archivo" << endl;
+        cout << "3) Regresar al men\243 anterior" << endl;
 
-        ImprimirMatriz(matrizA, mA, nA);
+        do
+        {
+            CapturaSegura(opUser, "OPCION (entre 1 y 3): ");
+        } while (opUser < 1 || opUser > 3);
 
-        cout << setw(nA * 5) << "*" << endl;
+        if (opUser == 3) continue;
 
-        ImprimirMatriz(matrizB, mB, nB);
+        switch (opUser)
+        {
+        case CONSOLA:
+            system("cls");
+            cout << "= MATRIZ A =\n" << endl;
+            CapturarDimensiones(mA, nA);
 
-        MultiplicacionMatrices(matrizA, matrizB, matrizR, mA, mB, nB);
+            cout << "\nCapturar matriz A:\n";
+            CapturarMatriz(matrizA, mA, nA);
+            ImprimirMatriz(matrizA, mA, nA);
 
-        cout << setw(nA * 5) << "=" << endl;
+            system("pause");
+            system("cls");
 
-        ImprimirMatriz(matrizR, mA, nB);
+            cout << "= MATRIZ B =\n " << endl;
+            CapturarDimensiones(mB, nB);
 
-        DestruirArreglo2D(matrizR, mA);
-    }
-    else
-    {
-        cout << "ERROR: Los dos arreglos no se pueden multiplicar (las columnas de la matriz A no coinciden con los renglones de la matriz B).";
-    }
+            cout << "\nCapturar matriz B:\n";
+            CapturarMatriz(matrizB, mB, nB);
+            ImprimirMatriz(matrizB, mB, nB);
+            break;
 
-    DestruirArreglo2D(matrizA, mA);
-    DestruirArreglo2D(matrizB, mB);
+        case ARCHIVO:
+            system("cls");
+
+            ifstream entrada;
+
+            cout << "= MATRIZ A = " << endl;
+            do
+            {
+                nombreArchivo = NombrarArchivo();
+
+                entrada.open(nombreArchivo);
+
+                if (!entrada.is_open()) entrada.close();
+                if (!entrada) cout << "ERROR: El archivo no pudo ser abierto ya que no existe." << endl;
+
+            } while (!entrada);
+
+            entrada.close();
+            CapturarMatrizArchivo(matrizA, mA, nA, nombreArchivo);
+
+            ImprimirMatriz(matrizA, mA, nA);
+
+            cout << "= MATRIZ B = " << endl;
+            do
+            {
+                nombreArchivo = NombrarArchivo();
+
+                entrada.open(nombreArchivo);
+
+                if (!entrada) cout << "ERROR: El archivo no pudo ser abierto ya que no existe." << endl;
+
+            } while (!entrada);
+
+            entrada.close();
+            CapturarMatrizArchivo(matrizB, mB, nB, nombreArchivo);
+
+            ImprimirMatriz(matrizB, mB, nB);
+            break;
+        }
+
+        system("pause");
+        system("cls");
+
+        cout << "MULTIPLICACION DE MATRICES\n" << endl;
+        if (nA == mB)
+        {
+            double** matrizR = CrearArreglo2D(mA, nB);
+
+            InicializarMatrizCero(matrizR, mA, nB);
+
+            ImprimirMatriz(matrizA, mA, nA);
+            cout << setw(nA * 5) << "*" << endl;
+            ImprimirMatriz(matrizB, mB, nB);
+            MultiplicacionMatrices(matrizA, matrizB, matrizR, mA, mB, nB);
+            cout << setw(nA * 5) << "=" << endl;
+            ImprimirMatriz(matrizR, mA, nB);
+
+            cout << "\250Desea imprimir el resultado a un archivo?" << endl;
+            cout << "1) S\241" << endl;
+            cout << "2) No" << endl;
+
+            do
+            {
+                CapturaSegura(opUser, "OPCION (entre 1 y 2): ");
+            } while (opUser < 1 || opUser > 2);
+
+            if (opUser == 1)
+            {
+                nombreArchivo = NombrarArchivo();
+                ImprimirMatrizArchivo(matrizR, mA, nB, nombreArchivo);
+            }
+
+            DestruirArreglo2D(matrizR, mA);
+        }
+        else
+        {
+            cout << "ERROR: Los dos arreglos no se pueden multiplicar (las columnas de la matriz A no coinciden con los renglones de la matriz B).\n\n";
+        }
+
+        DestruirArreglo2D(matrizA, MAX_REN);
+        DestruirArreglo2D(matrizB, MAX_REN);
+        break;
+
+    } while (opUser != 3);
 
     system("pause");
 }
 
 void GestionarTranspuesta()
 {
-    int m, n;
-    char solicitud[50];
-    cout << "TRANSPUESTA DE LA MATRIZ\n" << endl;
+    int m(0), n(0);
+    int opUser;
+    string nombreArchivo;
+    double** matriz = CrearArreglo2D(MAX_REN, MAX_COL);
+    double** matrizT = CrearArreglo2D(MAX_REN, MAX_COL);
 
-    cout << "= MATRIZ =\n" << endl;
-    sprintf_s(solicitud, "Numero de renglones (enteros positivos <= %d) : ", MAX_REN);
-    do {
-        CapturaSegura(m, solicitud);
-    } while (m < 1 || m > MAX_REN);
+    do
+    {
+        cout << "TRANSPUESTA DE UNA MATRIZ\n" << endl;
 
-    sprintf_s(solicitud, "Numero de columnas (enteros positivos <= %d) : ", MAX_COL);
-    do {
-        CapturaSegura(n, solicitud);
-    } while (n < 1 || n > MAX_COL);
+        cout << "Elija una opci\242n de captura: " << endl;
+        cout << CONSOLA << ") Captura manual en consola" << endl;
+        cout << ARCHIVO << ") Captura desde archivo" << endl;
+        cout << "3) Regresar al men\243 anterior" << endl;
 
-    cout << "\nCapturar matriz A:\n";
-    double** matriz = CrearArreglo2D(m, n);
+        do
+        {
+            CapturaSegura(opUser, "OPCION (entre 1 y 3): ");
+        } while (opUser < 1 || opUser > 3);
 
-    CapturarMatriz(matriz, m, n);
-    ImprimirMatriz(matriz, m, n);
-    double** matrizT = CrearArreglo2D(n, m);
+        if (opUser == 3) continue;
 
-    system("pause");
-    system("cls");
-    cout << "TRANSPUESTA DE LA MATRIZ\n" << endl;
+        switch (opUser)
+        {
+        case CONSOLA:
+            system("cls");
+            cout << "= MATRIZ =\n" << endl;
+            CapturarDimensiones(m, n);
 
-    cout << "Matriz original: " << endl;
-    ImprimirMatriz(matriz, m, n);
+            cout << "\nCapturar matriz :\n";
+            CapturarMatriz(matriz, m, n);
+            ImprimirMatriz(matriz, m, n);
+            break;
 
-    TranspuestaMatriz(matriz, matrizT, m, n);
+        case ARCHIVO:
+            system("cls");
 
-    cout << "Transpuesta: " << endl;
-    ImprimirMatriz(matrizT, n, m);
+            ifstream entrada;
+            cout << "= MATRIZ = " << endl;
+            do
+            {
+                nombreArchivo = NombrarArchivo();
 
-    DestruirArreglo2D(matriz, m);
-    DestruirArreglo2D(matrizT, m);
+                entrada.open(nombreArchivo);
+
+                if (!entrada.is_open()) entrada.close();
+                if (!entrada) cout << "ERROR: El archivo no pudo ser abierto ya que no existe." << endl;
+
+            } while (!entrada);
+
+            entrada.close();
+            CapturarMatrizArchivo(matriz, m, n, nombreArchivo);
+
+            ImprimirMatriz(matriz, m, n);
+            break;
+        }
+
+        system("pause");
+        system("cls");
+
+        cout << "TRANSPUESTA DE UNA MATRIZ\n" << endl;
+
+        cout << "Matriz original: \n" << endl;
+        ImprimirMatriz(matriz, m, n);
+        TranspuestaMatriz(matriz, matrizT, m, n);
+        cout << "\nTranspuesta: \n" << endl;
+        ImprimirMatriz(matrizT, n, m);
+
+        cout << "\250Desea imprimir el resultado a un archivo?" << endl;
+        cout << "1) S\241" << endl;
+        cout << "2) No" << endl;
+
+        do
+        {
+            CapturaSegura(opUser, "OPCION (entre 1 y 2): ");
+        } while (opUser < 1 || opUser > 2);
+
+        if (opUser == 1)
+        {
+            nombreArchivo = NombrarArchivo();
+            ImprimirMatrizArchivo(matrizT, n, m, nombreArchivo);
+        }
+
+        DestruirArreglo2D(matriz, m);
+        DestruirArreglo2D(matrizT, n);
+        break;
+
+    } while (opUser != 3);
 
     system("pause");
 }
