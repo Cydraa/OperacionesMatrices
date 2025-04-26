@@ -3,13 +3,13 @@
 /** \file
 */
 
-#include <iostream> /** cout, cin, endl */
-#include <iomanip> /** setw, setprecision, fixed */
-#include <stdio.h> /** sprintf_s */
-#include <fstream> /** ofstream,ifstream */
-#include <cstdlib> /** system */
-#include <string> /** string */
-#include "CapturaSegura.hpp" /** CapturaSegura */
+#include <iostream> // cout, cin, endl
+#include <iomanip> // setw, setprecision, fixed
+#include <stdio.h> // sprintf_s
+#include <fstream> // ofstream,ifstream
+#include <cstdlib> // system
+#include <string> // string
+#include "CapturaSegura.hpp" // CapturaSegura
 
 using std::cout;
 using std::cin;
