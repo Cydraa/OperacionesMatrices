@@ -6,7 +6,7 @@ double** CrearArreglo2D(int m, int n) // m = renglones, n = columnas
     double** arreglo = new double* [m];
     for (int i = 0; i < m; ++i)
     {
-        arreglo[i] = new double[n];
+        arreglo[i] = new double[n] ;
     }
 
     return arreglo;
@@ -65,5 +65,9 @@ string NombrarArchivo()
     }
 
     return nombreArchivo;
+}
 
+double ValorAbsoluto(double valor) {
+    if (valor < 0) return -valor;
+    else return valor;
 }

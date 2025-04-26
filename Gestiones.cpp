@@ -54,7 +54,7 @@ void GestionarSuma()
         if (opUser == 3) continue;
 
         system("cls");
-
+        cout << "SUMA DE MATRICES\n" << endl;
         switch (opUser)
         {
         case CONSOLA:
@@ -184,10 +184,12 @@ void GestionarResta()
 
         if (opUser == 3) continue;
 
+        system("cls");
+        cout << "RESTA DE MATRICES\n" << endl;
+
         switch (opUser)
         {
         case CONSOLA:
-            system("cls");
             cout << "= MATRIZ A =\n" << endl;
             CapturarDimensiones(mA, nA);
 
@@ -207,8 +209,6 @@ void GestionarResta()
             break;
 
         case ARCHIVO:
-            system("cls");
-
             ifstream entrada;
 
             cout << "= MATRIZ A = " << endl;
@@ -316,10 +316,12 @@ void GestionarProdEscalar()
 
         if (opUser == 3) continue;
 
+        system("cls");
+        cout << "PRODUCTO POR UN ESCALAR\n" << endl;
+
         switch (opUser)
         {
         case CONSOLA:
-            system("cls");
             cout << "= MATRIZ =\n" << endl;
             CapturarDimensiones(m, n);
 
@@ -329,8 +331,6 @@ void GestionarProdEscalar()
             break;
 
         case ARCHIVO:
-            system("cls");
-
             ifstream entrada;
             cout << "= MATRIZ = " << endl;
             do
@@ -412,10 +412,12 @@ void GestionarMultiplicacion()
 
         if (opUser == 3) continue;
 
+        system("cls");
+        cout << "MULTIPLICACION DE MATRICES\n" << endl;
+
         switch (opUser)
         {
         case CONSOLA:
-            system("cls");
             cout << "= MATRIZ A =\n" << endl;
             CapturarDimensiones(mA, nA);
 
@@ -435,8 +437,6 @@ void GestionarMultiplicacion()
             break;
 
         case ARCHIVO:
-            system("cls");
-
             ifstream entrada;
 
             cout << "= MATRIZ A = " << endl;
@@ -546,10 +546,12 @@ void GestionarTranspuesta()
 
         if (opUser == 3) continue;
 
+        system("cls");
+        cout << "TRANSPUESTA DE UNA MATRIZ\n" << endl;
+
         switch (opUser)
         {
         case CONSOLA:
-            system("cls");
             cout << "= MATRIZ =\n" << endl;
             CapturarDimensiones(m, n);
 
@@ -559,8 +561,6 @@ void GestionarTranspuesta()
             break;
 
         case ARCHIVO:
-            system("cls");
-
             ifstream entrada;
             cout << "= MATRIZ = " << endl;
             do
@@ -609,6 +609,117 @@ void GestionarTranspuesta()
 
         DestruirArreglo2D(matriz, m);
         DestruirArreglo2D(matrizT, n);
+        break;
+
+    } while (opUser != 3);
+
+    system("pause");
+}
+
+void GestionarInversa()
+{
+    int m(0), n(0);
+    int opUser;
+    string nombreArchivo;
+    double** matriz = CrearArreglo2D(MAX_REN, MAX_COL);
+    double** matrizI = CrearArreglo2D(MAX_REN, MAX_COL);
+    InicializarMatrizCero(matriz, m, n);
+
+    do
+    {
+        cout << "INVERSA DE UNA MATRIZ\n" << endl;
+
+        cout << "Elija una opci\242n de captura: " << endl;
+        cout << CONSOLA << ") Captura manual en consola" << endl;
+        cout << ARCHIVO << ") Captura desde archivo" << endl;
+        cout << "3) Regresar al men\243 anterior" << endl;
+
+        do
+        {
+            CapturaSegura(opUser, "OPCION (entre 1 y 3): ");
+        } while (opUser < 1 || opUser > 3);
+
+        if (opUser == 3) continue;
+
+        system("cls");
+        cout << "INVERSA DE UNA MATRIZ\n" << endl;
+
+        switch (opUser)
+        {
+        case CONSOLA:
+            cout << "= MATRIZ =\n" << endl;
+            CapturarDimensiones(m, n);
+
+            cout << "\nCapturar matriz :\n";
+            CapturarMatriz(matriz, m, n);
+            ImprimirMatriz(matriz, m, n);
+            break;
+
+        case ARCHIVO:
+            ifstream entrada;
+            cout << "= MATRIZ = " << endl;
+            do
+            {
+                nombreArchivo = NombrarArchivo();
+
+                entrada.open(nombreArchivo);
+
+                if (!entrada.is_open()) entrada.close();
+                if (!entrada) cout << "ERROR: El archivo no pudo ser abierto ya que no existe." << endl;
+
+            } while (!entrada);
+
+            entrada.close();
+            CapturarMatrizArchivo(matriz, m, n, nombreArchivo);
+
+            ImprimirMatriz(matriz, m, n);
+            break;
+        }
+
+        system("pause");
+        system("cls");
+
+        cout << "INVERSA DE UNA MATRIZ\n" << endl;
+
+        cout << "Matriz original: \n" << endl;
+        ImprimirMatriz(matriz, m, n);
+
+        if (m != n)
+        {
+            cout << "\nLa matriz no es cuadrada. La matriz no es invertible. Introduzca una matriz cuadrada para calcular la inversa.\n" << endl;
+        }
+        else
+        {
+            InvertirMatriz(matriz, m, matrizI);
+
+            if (InvertirMatriz(matriz, m, matrizI) == false)
+            {
+                cout << "\nLa matriz no es invertible debido a que el determinante es igual a 0.\n" << endl;
+            }
+            else
+            {
+                cout << "\nInversa: \n" << endl;
+                ImprimirMatriz(matrizI, m, n);
+
+                cout << "\250Desea imprimir el resultado a un archivo?" << endl;
+                cout << "1) S\241" << endl;
+                cout << "2) No" << endl;
+
+                do
+                {
+                    CapturaSegura(opUser, "OPCION (entre 1 y 2): ");
+                } while (opUser < 1 || opUser > 2);
+
+                if (opUser == 1)
+                {
+                    nombreArchivo = NombrarArchivo();
+                    ImprimirMatrizArchivo(matrizI, m, n, nombreArchivo);
+                }
+            }
+        }
+
+        DestruirArreglo2D(matrizI, m);
+        DestruirArreglo2D(matriz, m);
         break;
 
     } while (opUser != 3);

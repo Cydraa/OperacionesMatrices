@@ -1,0 +1,979 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Operaciones de Matrices: Referencia del archivo C:/Users/GamerHouse/Documents/0_UNISON/Programacion I/OperacionesMatrices/OperacionesMatrices.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Operaciones de Matrices
+   </div>
+   <div id="projectbrief">Este programa realiza operaciones b&aacute;sicas sobre matrices. Elaborado por Ana Paulina Sortill&oacute;n y Jovanna Amiraxel Reyes Casillas.</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_operaciones_matrices_8hpp.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#enum-members">Enumeraciones</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo C:/Users/GamerHouse/Documents/0_UNISON/Programacion I/OperacionesMatrices/OperacionesMatrices.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &quot;<a class="el" href="_captura_segura_8hpp_source.html">CapturaSegura.hpp</a>&quot;</code><br />
+</div>
+<p><a href="_operaciones_matrices_8hpp_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:ad3b253d7129eefb0fae2e4aef2215b1e" id="r_ad3b253d7129eefb0fae2e4aef2215b1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3b253d7129eefb0fae2e4aef2215b1e">MAX_REN</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:ad3b253d7129eefb0fae2e4aef2215b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97e80440b5a5ec2ffc172dead9f8d2ec" id="r_a97e80440b5a5ec2ffc172dead9f8d2ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97e80440b5a5ec2ffc172dead9f8d2ec">MAX_COL</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a97e80440b5a5ec2ffc172dead9f8d2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98488cf5e6081e5436ffc188ccde8d4c" id="r_a98488cf5e6081e5436ffc188ccde8d4c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98488cf5e6081e5436ffc188ccde8d4c">MAX_NOMBRE</a>&#160;&#160;&#160;52</td></tr>
+<tr class="separator:a98488cf5e6081e5436ffc188ccde8d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumeraciones</h2></td></tr>
+<tr class="memitem:a12e9eb2f8f561cbd37ddb882dae6c112" id="r_a12e9eb2f8f561cbd37ddb882dae6c112"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12e9eb2f8f561cbd37ddb882dae6c112">operaciones</a> { <br />
+&#160;&#160;<a class="el" href="#a12e9eb2f8f561cbd37ddb882dae6c112abe09bb3b1dc35809ac0f1f8194575c26">CAPTURAR_ARCHIVO</a> = 1
+, <a class="el" href="#a12e9eb2f8f561cbd37ddb882dae6c112aec0d1055bbc671bb44adda2f71dbd832">SUMA</a>
+, <a class="el" href="#a12e9eb2f8f561cbd37ddb882dae6c112aaa2db9c96723d6dd5e458028a88f8033">RESTA</a>
+, <a class="el" href="#a12e9eb2f8f561cbd37ddb882dae6c112a754057b4b82c4b2c9a4aa2522165171b">PROD_ESCALAR</a>
+, <br />
+&#160;&#160;<a class="el" href="#a12e9eb2f8f561cbd37ddb882dae6c112a421c047479e5629767f0132c6caeeedb">MULTIPLICACION</a>
+, <a class="el" href="#a12e9eb2f8f561cbd37ddb882dae6c112a27cee6cc2ad6c9612617bee966a1c6f0">TRANSPUESTA</a>
+, <a class="el" href="#a12e9eb2f8f561cbd37ddb882dae6c112a9bb96449b0157572335be750e6f3cf98">INVERSA</a>
+<br />
+ }</td></tr>
+<tr class="separator:a12e9eb2f8f561cbd37ddb882dae6c112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a9833508deb2539c2e0ee053bfc006f8b" id="r_a9833508deb2539c2e0ee053bfc006f8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9833508deb2539c2e0ee053bfc006f8b">ImprimirMatriz</a> (double **matriz, int m, int n)</td></tr>
+<tr class="memdesc:a9833508deb2539c2e0ee053bfc006f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime una matriz a consola.  <br /></td></tr>
+<tr class="separator:a9833508deb2539c2e0ee053bfc006f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a584c180acf91630f8adcc07f7b26c524" id="r_a584c180acf91630f8adcc07f7b26c524"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a584c180acf91630f8adcc07f7b26c524">CapturarMatriz</a> (double **matriz, int m, int n)</td></tr>
+<tr class="memdesc:a584c180acf91630f8adcc07f7b26c524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Captura una matriz desde la consola.  <br /></td></tr>
+<tr class="separator:a584c180acf91630f8adcc07f7b26c524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7632570fd9a6c535997f9e065f199d90" id="r_a7632570fd9a6c535997f9e065f199d90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7632570fd9a6c535997f9e065f199d90">ImprimirMatrizArchivo</a> (double **matriz, int m, int n, string nombreArchivo)</td></tr>
+<tr class="memdesc:a7632570fd9a6c535997f9e065f199d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime una matriz de la consola a un archivo .txt.  <br /></td></tr>
+<tr class="separator:a7632570fd9a6c535997f9e065f199d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8764d3cee4637b6353322b26eb3d22a1" id="r_a8764d3cee4637b6353322b26eb3d22a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8764d3cee4637b6353322b26eb3d22a1">CapturarMatrizArchivo</a> (double **&amp;matriz, int &amp;m, int &amp;n, string nombreArchivo)</td></tr>
+<tr class="memdesc:a8764d3cee4637b6353322b26eb3d22a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Captura una matriz a consola desde un archivo .txt.  <br /></td></tr>
+<tr class="separator:a8764d3cee4637b6353322b26eb3d22a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f2292b664d4494d42e26b597e27d13c" id="r_a3f2292b664d4494d42e26b597e27d13c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f2292b664d4494d42e26b597e27d13c">InicializarMatrizCero</a> (double **matriz, int m, int n)</td></tr>
+<tr class="memdesc:a3f2292b664d4494d42e26b597e27d13c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Llena la matriz con 0.  <br /></td></tr>
+<tr class="separator:a3f2292b664d4494d42e26b597e27d13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a419be45d2f735b7a5a050bdef2e6664e" id="r_a419be45d2f735b7a5a050bdef2e6664e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a419be45d2f735b7a5a050bdef2e6664e">SumaMatriz</a> (double **matrizA, double **matrizB, double **matrizR, int m, int n)</td></tr>
+<tr class="memdesc:a419be45d2f735b7a5a050bdef2e6664e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suma dos matrices.  <br /></td></tr>
+<tr class="separator:a419be45d2f735b7a5a050bdef2e6664e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e6016629c9cde3d992c539352e0ae70" id="r_a5e6016629c9cde3d992c539352e0ae70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e6016629c9cde3d992c539352e0ae70">RestaMatriz</a> (double **matrizA, double **matrizB, double **matrizR, int m, int n)</td></tr>
+<tr class="memdesc:a5e6016629c9cde3d992c539352e0ae70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resta dos matrices.  <br /></td></tr>
+<tr class="separator:a5e6016629c9cde3d992c539352e0ae70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cbb45f13975d8f76c7ea9ccb2ebb906" id="r_a8cbb45f13975d8f76c7ea9ccb2ebb906"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cbb45f13975d8f76c7ea9ccb2ebb906">ProductoEscalar</a> (double **matriz, double escalar, int m, int n)</td></tr>
+<tr class="memdesc:a8cbb45f13975d8f76c7ea9ccb2ebb906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplica una matriz por un escalar.  <br /></td></tr>
+<tr class="separator:a8cbb45f13975d8f76c7ea9ccb2ebb906"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ceb43895a58a8f84c10d9a0f3df7f6e" id="r_a5ceb43895a58a8f84c10d9a0f3df7f6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ceb43895a58a8f84c10d9a0f3df7f6e">MultiplicacionMatrices</a> (double **matrizA, double **matrizB, double **matrizR, int mA, int mB, int nB)</td></tr>
+<tr class="memdesc:a5ceb43895a58a8f84c10d9a0f3df7f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplica una matriz por una matriz.  <br /></td></tr>
+<tr class="separator:a5ceb43895a58a8f84c10d9a0f3df7f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9f1a40c51f7c3bbd13ce9de469227ca" id="r_af9f1a40c51f7c3bbd13ce9de469227ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9f1a40c51f7c3bbd13ce9de469227ca">TranspuestaMatriz</a> (double **matriz, double **matrizT, int m, int n)</td></tr>
+<tr class="memdesc:af9f1a40c51f7c3bbd13ce9de469227ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula la transpuesta de una matriz.  <br /></td></tr>
+<tr class="separator:af9f1a40c51f7c3bbd13ce9de469227ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0053ab7e2782f87d14c9cab6a66352f4" id="r_a0053ab7e2782f87d14c9cab6a66352f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0053ab7e2782f87d14c9cab6a66352f4">InvertirMatriz</a> (double **m1, int a, double **Inversa)</td></tr>
+<tr class="memdesc:a0053ab7e2782f87d14c9cab6a66352f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula la inversa de una matriz y regresa si es invertible o no.  <br /></td></tr>
+<tr class="separator:a0053ab7e2782f87d14c9cab6a66352f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b88696919d4d2eb89e82efe13a460d" id="r_aa0b88696919d4d2eb89e82efe13a460d"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0b88696919d4d2eb89e82efe13a460d">copiar_renglon</a> (double **m1, int a, int renglon)</td></tr>
+<tr class="memdesc:aa0b88696919d4d2eb89e82efe13a460d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copia el rengl&oacute;n de una matriz.  <br /></td></tr>
+<tr class="separator:aa0b88696919d4d2eb89e82efe13a460d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a037027300250434468fbc25dd1cec83b" id="r_a037027300250434468fbc25dd1cec83b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a037027300250434468fbc25dd1cec83b">CambioRenglon</a> (double **m1, int a, int renglon_1, int renglon_2)</td></tr>
+<tr class="memdesc:a037027300250434468fbc25dd1cec83b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intercambia los renglones de una matriz.  <br /></td></tr>
+<tr class="separator:a037027300250434468fbc25dd1cec83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10d36897d0b49e50ee82a0912d0469d1" id="r_a10d36897d0b49e50ee82a0912d0469d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10d36897d0b49e50ee82a0912d0469d1">DuplicarMatriz</a> (double **m1, double **m2, int a)</td></tr>
+<tr class="memdesc:a10d36897d0b49e50ee82a0912d0469d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza una copia de la matriz.  <br /></td></tr>
+<tr class="separator:a10d36897d0b49e50ee82a0912d0469d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a365f0e2d9ef2a9151486f6f715bf63b6" id="r_a365f0e2d9ef2a9151486f6f715bf63b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a365f0e2d9ef2a9151486f6f715bf63b6">TempPivote</a> (double **m1, int a, int pivote)</td></tr>
+<tr class="memdesc:a365f0e2d9ef2a9151486f6f715bf63b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encuentra el pivote de un rengl&oacute;n.  <br /></td></tr>
+<tr class="separator:a365f0e2d9ef2a9151486f6f715bf63b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedc1935105c31cfb816a140261b3f852" id="r_aedc1935105c31cfb816a140261b3f852"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedc1935105c31cfb816a140261b3f852">Identizar</a> (double **m1, int a, int pivote)</td></tr>
+<tr class="memdesc:aedc1935105c31cfb816a140261b3f852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identiza el pivote de un rengl&oacute;n.  <br /></td></tr>
+<tr class="separator:aedc1935105c31cfb816a140261b3f852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a989f7a3f7405983b734c244909e14941" id="r_a989f7a3f7405983b734c244909e14941"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a989f7a3f7405983b734c244909e14941">hacerCero</a> (double **m1, int a, int pivote)</td></tr>
+<tr class="memdesc:a989f7a3f7405983b734c244909e14941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determina los elementos que se deben de operar para llevar a 0 elementos de otro rengl&oacute;n.  <br /></td></tr>
+<tr class="separator:a989f7a3f7405983b734c244909e14941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="a97e80440b5a5ec2ffc172dead9f8d2ec" name="a97e80440b5a5ec2ffc172dead9f8d2ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97e80440b5a5ec2ffc172dead9f8d2ec">&#9670;&#160;</a></span>MAX_COL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_COL&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Columnas m&aacute;ximas de la matriz </p>
+
+</div>
+</div>
+<a id="a98488cf5e6081e5436ffc188ccde8d4c" name="a98488cf5e6081e5436ffc188ccde8d4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98488cf5e6081e5436ffc188ccde8d4c">&#9670;&#160;</a></span>MAX_NOMBRE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_NOMBRE&#160;&#160;&#160;52</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Caracteres m&aacute;ximos del nombre del archivo </p>
+
+</div>
+</div>
+<a id="ad3b253d7129eefb0fae2e4aef2215b1e" name="ad3b253d7129eefb0fae2e4aef2215b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3b253d7129eefb0fae2e4aef2215b1e">&#9670;&#160;</a></span>MAX_REN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_REN&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renglones m&aacute;ximos de la matriz </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de enumeraciones</h2>
+<a id="a12e9eb2f8f561cbd37ddb882dae6c112" name="a12e9eb2f8f561cbd37ddb882dae6c112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12e9eb2f8f561cbd37ddb882dae6c112">&#9670;&#160;</a></span>operaciones</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a12e9eb2f8f561cbd37ddb882dae6c112">operaciones</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>OPERACIONES DISPONIBLES </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumeraciones</th></tr><tr><td class="fieldname"><a id="a12e9eb2f8f561cbd37ddb882dae6c112abe09bb3b1dc35809ac0f1f8194575c26" name="a12e9eb2f8f561cbd37ddb882dae6c112abe09bb3b1dc35809ac0f1f8194575c26"></a>CAPTURAR_ARCHIVO&#160;</td><td class="fielddoc"><p>Capturar una matriz e imprimir a archivo </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12e9eb2f8f561cbd37ddb882dae6c112aec0d1055bbc671bb44adda2f71dbd832" name="a12e9eb2f8f561cbd37ddb882dae6c112aec0d1055bbc671bb44adda2f71dbd832"></a>SUMA&#160;</td><td class="fielddoc"><p>Suma de matrices </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12e9eb2f8f561cbd37ddb882dae6c112aaa2db9c96723d6dd5e458028a88f8033" name="a12e9eb2f8f561cbd37ddb882dae6c112aaa2db9c96723d6dd5e458028a88f8033"></a>RESTA&#160;</td><td class="fielddoc"><p>Resta de matrices </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12e9eb2f8f561cbd37ddb882dae6c112a754057b4b82c4b2c9a4aa2522165171b" name="a12e9eb2f8f561cbd37ddb882dae6c112a754057b4b82c4b2c9a4aa2522165171b"></a>PROD_ESCALAR&#160;</td><td class="fielddoc"><p>Producto de matriz por un escalar </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12e9eb2f8f561cbd37ddb882dae6c112a421c047479e5629767f0132c6caeeedb" name="a12e9eb2f8f561cbd37ddb882dae6c112a421c047479e5629767f0132c6caeeedb"></a>MULTIPLICACION&#160;</td><td class="fielddoc"><p>Multiplicaci&oacute;n de matrices </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12e9eb2f8f561cbd37ddb882dae6c112a27cee6cc2ad6c9612617bee966a1c6f0" name="a12e9eb2f8f561cbd37ddb882dae6c112a27cee6cc2ad6c9612617bee966a1c6f0"></a>TRANSPUESTA&#160;</td><td class="fielddoc"><p>Transpuesta de la matriz </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12e9eb2f8f561cbd37ddb882dae6c112a9bb96449b0157572335be750e6f3cf98" name="a12e9eb2f8f561cbd37ddb882dae6c112a9bb96449b0157572335be750e6f3cf98"></a>INVERSA&#160;</td><td class="fielddoc"><p>Inversa de la matriz </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="a037027300250434468fbc25dd1cec83b" name="a037027300250434468fbc25dd1cec83b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a037027300250434468fbc25dd1cec83b">&#9670;&#160;</a></span>CambioRenglon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CambioRenglon </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>m1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>renglon_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>renglon_2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Intercambia los renglones de una matriz. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m1</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">a</td><td>Rengl&oacute;n de la matriz. </td></tr>
+    <tr><td class="paramname">renglon_1</td><td>&Iacute;ndice del rengl&oacute;n 1. </td></tr>
+    <tr><td class="paramname">renglon_2</td><td>&Iacute;ndice del rengl&oacute;n 2. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a584c180acf91630f8adcc07f7b26c524" name="a584c180acf91630f8adcc07f7b26c524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a584c180acf91630f8adcc07f7b26c524">&#9670;&#160;</a></span>CapturarMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CapturarMatriz </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Captura una matriz desde la consola. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">m</td><td>Rengl&oacute;n de una matriz. </td></tr>
+    <tr><td class="paramname">n</td><td>Columna de una matriz. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8764d3cee4637b6353322b26eb3d22a1" name="a8764d3cee4637b6353322b26eb3d22a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8764d3cee4637b6353322b26eb3d22a1">&#9670;&#160;</a></span>CapturarMatrizArchivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CapturarMatrizArchivo </td>
+          <td>(</td>
+          <td class="paramtype">double **&amp;</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>nombreArchivo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Captura una matriz a consola desde un archivo .txt. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">m</td><td>Rengl&oacute;n de una matriz. </td></tr>
+    <tr><td class="paramname">n</td><td>Columna de una matriz. </td></tr>
+    <tr><td class="paramname">nombreArchivo</td><td>Nombre del archivo (incluyendo su extensi&oacute;n). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa0b88696919d4d2eb89e82efe13a460d" name="aa0b88696919d4d2eb89e82efe13a460d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0b88696919d4d2eb89e82efe13a460d">&#9670;&#160;</a></span>copiar_renglon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double * copiar_renglon </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>m1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>renglon</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copia el rengl&oacute;n de una matriz. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m1</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">a</td><td>Rengl&oacute;n de la matriz. </td></tr>
+    <tr><td class="paramname">renglon</td><td>&Iacute;ndice del rengl&oacute;n. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Regresa un puntero del rengl&oacute;n auxiliar (copia). </dd></dl>
+
+</div>
+</div>
+<a id="a10d36897d0b49e50ee82a0912d0469d1" name="a10d36897d0b49e50ee82a0912d0469d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10d36897d0b49e50ee82a0912d0469d1">&#9670;&#160;</a></span>DuplicarMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DuplicarMatriz </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>m1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>m2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza una copia de la matriz. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m1</td><td>Arreglo 2D de una matriz fuente. </td></tr>
+    <tr><td class="paramname">m2</td><td>Arreglo 2D de una matriz destino. </td></tr>
+    <tr><td class="paramname">a</td><td>Rengl&oacute;n de la matriz. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a989f7a3f7405983b734c244909e14941" name="a989f7a3f7405983b734c244909e14941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a989f7a3f7405983b734c244909e14941">&#9670;&#160;</a></span>hacerCero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hacerCero </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>m1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>pivote</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Determina los elementos que se deben de operar para llevar a 0 elementos de otro rengl&oacute;n. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m1</td><td>Arreglo 2D de una matriz fuente. </td></tr>
+    <tr><td class="paramname">a</td><td>Rengl&oacute;n de la matriz. </td></tr>
+    <tr><td class="paramname">pivote</td><td>Pivote del rengl&oacute;n. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aedc1935105c31cfb816a140261b3f852" name="aedc1935105c31cfb816a140261b3f852"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedc1935105c31cfb816a140261b3f852">&#9670;&#160;</a></span>Identizar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Identizar </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>m1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>pivote</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Identiza el pivote de un rengl&oacute;n. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m1</td><td>Arreglo 2D de una matriz fuente. </td></tr>
+    <tr><td class="paramname">a</td><td>Rengl&oacute;n de la matriz. </td></tr>
+    <tr><td class="paramname">pivote</td><td>Pivote del rengl&oacute;n. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9833508deb2539c2e0ee053bfc006f8b" name="a9833508deb2539c2e0ee053bfc006f8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9833508deb2539c2e0ee053bfc006f8b">&#9670;&#160;</a></span>ImprimirMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImprimirMatriz </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime una matriz a consola. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">m</td><td>Rengl&oacute;n de una matriz. </td></tr>
+    <tr><td class="paramname">n</td><td>Columna de una matriz. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7632570fd9a6c535997f9e065f199d90" name="a7632570fd9a6c535997f9e065f199d90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7632570fd9a6c535997f9e065f199d90">&#9670;&#160;</a></span>ImprimirMatrizArchivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImprimirMatrizArchivo </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>nombreArchivo</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime una matriz de la consola a un archivo .txt. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">m</td><td>Rengl&oacute;n de una matriz. </td></tr>
+    <tr><td class="paramname">n</td><td>Columna de una matriz. </td></tr>
+    <tr><td class="paramname">nombreArchivo</td><td>Nombre del archivo (incluyendo su extensi&oacute;n). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3f2292b664d4494d42e26b597e27d13c" name="a3f2292b664d4494d42e26b597e27d13c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f2292b664d4494d42e26b597e27d13c">&#9670;&#160;</a></span>InicializarMatrizCero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void InicializarMatrizCero </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Llena la matriz con 0. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">m</td><td>Rengl&oacute;n de una matriz. </td></tr>
+    <tr><td class="paramname">n</td><td>Columna de una matriz. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0053ab7e2782f87d14c9cab6a66352f4" name="a0053ab7e2782f87d14c9cab6a66352f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0053ab7e2782f87d14c9cab6a66352f4">&#9670;&#160;</a></span>InvertirMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool InvertirMatriz </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>m1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>Inversa</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula la inversa de una matriz y regresa si es invertible o no. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m1</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">a</td><td>Rengl&oacute;n de la matriz. </td></tr>
+    <tr><td class="paramname">Inversa</td><td>Arreglo 2D resultante de la matriz inversa. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Booleano. TRUE = es invertible, FALSE = no es invertible. </dd></dl>
+
+</div>
+</div>
+<a id="a5ceb43895a58a8f84c10d9a0f3df7f6e" name="a5ceb43895a58a8f84c10d9a0f3df7f6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ceb43895a58a8f84c10d9a0f3df7f6e">&#9670;&#160;</a></span>MultiplicacionMatrices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MultiplicacionMatrices </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matrizA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matrizB</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matrizR</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>mA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>mB</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>nB</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplica una matriz por una matriz. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrizA</td><td>Arreglo 2D de una matriz A. </td></tr>
+    <tr><td class="paramname">matrizB</td><td>Arreglo 2D de una matriz B. </td></tr>
+    <tr><td class="paramname">matrizR</td><td>Arreglo 2D de una matriz resultante. </td></tr>
+    <tr><td class="paramname">mA</td><td>Rengl&oacute;n de la matriz A. </td></tr>
+    <tr><td class="paramname">mB</td><td>Rengl&oacute;n de la matriz B. </td></tr>
+    <tr><td class="paramname">nB</td><td>Columna de una matriz B. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondición</dt><dd>Las columnas de la matriz A deben ser iguales a los renglones de la matriz B : nA = mB </dd></dl>
+
+</div>
+</div>
+<a id="a8cbb45f13975d8f76c7ea9ccb2ebb906" name="a8cbb45f13975d8f76c7ea9ccb2ebb906"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cbb45f13975d8f76c7ea9ccb2ebb906">&#9670;&#160;</a></span>ProductoEscalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProductoEscalar </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>escalar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplica una matriz por un escalar. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">escalar</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">m</td><td>Rengl&oacute;n de una matriz. </td></tr>
+    <tr><td class="paramname">n</td><td>Columna de una matriz. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5e6016629c9cde3d992c539352e0ae70" name="a5e6016629c9cde3d992c539352e0ae70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e6016629c9cde3d992c539352e0ae70">&#9670;&#160;</a></span>RestaMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RestaMatriz </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matrizA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matrizB</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matrizR</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resta dos matrices. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrizA</td><td>Arreglo 2D de una matriz A. </td></tr>
+    <tr><td class="paramname">matrizB</td><td>Arreglo 2D de una matriz B. </td></tr>
+    <tr><td class="paramname">matrizR</td><td>Arreglo 2D de una matriz resultante. </td></tr>
+    <tr><td class="paramname">m</td><td>Rengl&oacute;n de una matriz. </td></tr>
+    <tr><td class="paramname">n</td><td>Columna de una matriz. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondición</dt><dd>Los renglones y las columnas deben ser iguales: m = n </dd></dl>
+
+</div>
+</div>
+<a id="a419be45d2f735b7a5a050bdef2e6664e" name="a419be45d2f735b7a5a050bdef2e6664e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a419be45d2f735b7a5a050bdef2e6664e">&#9670;&#160;</a></span>SumaMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SumaMatriz </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matrizA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matrizB</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matrizR</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Suma dos matrices. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrizA</td><td>Arreglo 2D de una matriz A. </td></tr>
+    <tr><td class="paramname">matrizB</td><td>Arreglo 2D de una matriz B. </td></tr>
+    <tr><td class="paramname">matrizR</td><td>Arreglo 2D de una matriz resultante. </td></tr>
+    <tr><td class="paramname">m</td><td>Rengl&oacute;n de una matriz. </td></tr>
+    <tr><td class="paramname">n</td><td>Columna de una matriz. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondición</dt><dd>Los renglones y las columnas deben ser iguales: m = n </dd></dl>
+
+</div>
+</div>
+<a id="a365f0e2d9ef2a9151486f6f715bf63b6" name="a365f0e2d9ef2a9151486f6f715bf63b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a365f0e2d9ef2a9151486f6f715bf63b6">&#9670;&#160;</a></span>TempPivote()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TempPivote </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>m1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>pivote</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Encuentra el pivote de un rengl&oacute;n. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m1</td><td>Arreglo 2D de una matriz fuente. </td></tr>
+    <tr><td class="paramname">a</td><td>Rengl&oacute;n de la matriz. </td></tr>
+    <tr><td class="paramname">pivote</td><td>Pivote del rengl&oacute;n. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af9f1a40c51f7c3bbd13ce9de469227ca" name="af9f1a40c51f7c3bbd13ce9de469227ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9f1a40c51f7c3bbd13ce9de469227ca">&#9670;&#160;</a></span>TranspuestaMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TranspuestaMatriz </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matrizT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula la transpuesta de una matriz. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Arreglo 2D de una matriz. </td></tr>
+    <tr><td class="paramname">matrizT</td><td>Arreglo 2D de una matriz transpuesta resultante. </td></tr>
+    <tr><td class="paramname">m</td><td>Rengl&oacute;n de la matriz. </td></tr>
+    <tr><td class="paramname">n</td><td>Rengl&oacute;n de la matriz. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="_operaciones_matrices_8hpp.html">OperacionesMatrices.hpp</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

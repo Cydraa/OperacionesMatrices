@@ -4,9 +4,6 @@
 //Fecha : 23/04/2025
 
 #include <iostream>
-#include <cstdlib>
-#include <iomanip>
-#include <cstring>
 
 #include "Gestiones.hpp"
 
@@ -50,7 +47,7 @@ int main()
             case PROD_ESCALAR: GestionarProdEscalar(); break;
             case MULTIPLICACION: GestionarMultiplicacion(); break;
             case TRANSPUESTA: GestionarTranspuesta(); break;
-            case INVERSA: break;
+            case INVERSA: GestionarInversa();  break;
         }
     } while (opUser != 8);
 
